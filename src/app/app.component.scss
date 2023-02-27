@@ -1,0 +1,71 @@
+.title {
+  text-align: center;
+  color: #fff;
+}
+
+.form {
+  background-color: #fff;
+  border-radius: 0.3rem;
+  width: fit-content;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
+  top: 27%;
+  left: 35%;
+  transform: scale(0);
+  transition: 0.3s ease transform;
+
+  &.show {
+    transform: scale(1);
+    transition: 0.3s ease transform;
+  }
+
+  &__h2 {
+    margin: 0;
+  }
+
+  &__fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__button {
+    width: 100%;
+    cursor: pointer;
+  }
+}
+
+.columns {
+  display: flex;
+  gap: 0.1rem;
+  align-items: baseline;
+  
+  &__column {
+    width: 100%;
+  }
+
+  &__header {
+    background-color: rgb(21, 20, 20);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
+  }
+
+  &__button-show-form {
+    cursor: pointer;
+  }
+}

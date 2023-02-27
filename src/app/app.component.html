@@ -1,0 +1,135 @@
+<h1 class="title">TodoList</h1>
+<form class="form" [formGroup]="taskForm" (ngSubmit)="addTask()" #form>
+  <h2 class="form__h2">Create <span #columnName></span></h2>
+  <div class="form__fields">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      formControlName="name"
+      placeholder="Enter name todolist"
+    />
+  </div>
+  <div class="form__fields">
+    <label for="time">Estimation time</label>
+    <input
+      type="number"
+      formControlName="time"
+      placeholder="Enter estimation time"
+    />
+  </div>
+  <div class="form__fields">
+    <label for="description">Description</label>
+    <textarea
+      formControlName="description"
+      placeholder="Enter description"
+    ></textarea>
+  </div>
+  <div class="form__buttons">
+    <button type="submit" class="form__button">Create</button>
+    <button type="button" class="form__button" (click)="hideForm()">
+      Cancel
+    </button>
+  </div>
+</form>
+<div class="columns">
+  <div class="columns__column">
+    <div class="columns__header">
+      <h3>To Do</h3>
+      <button
+        type="button"
+        class="columns__button-show-form"
+        data-column="to do"
+        (click)="showForm($event)"
+      >
+        +
+      </button>
+    </div>
+    <div class="columns__content">
+      <div *ngFor="let todo of toDoList">
+        <app-table-cell
+          [nameToDoList]="todo.name"
+          [estimationTime]="todo.time"
+          [description]="todo.description"
+          [id]="todo.id"
+          [columnName]="'to do'"
+          (onDeleteTask)="deleteTask($event)"
+        ></app-table-cell>
+      </div>
+    </div>
+  </div>
+  <div class="columns__column">
+    <div class="columns__header">
+      <h3>In Progress</h3>
+      <button
+        type="button"
+        class="columns__button-show-form"
+        data-column="in progress"
+        (click)="showForm($event)"
+      >
+        +
+      </button>
+    </div>
+    <div class="columns__content">
+      <div *ngFor="let inProgress of inProgressList">
+        <app-table-cell
+          [nameToDoList]="inProgress.name"
+          [estimationTime]="inProgress.time"
+          [description]="inProgress.description"
+          [id]="inProgress.id"
+          [columnName]="'in progress'"
+          (onDeleteTask)="deleteTask($event)"
+        ></app-table-cell>
+      </div>
+    </div>
+  </div>
+  <div class="columns__column">
+    <div class="columns__header">
+      <h3>To Be Tested</h3>
+      <button
+        type="button"
+        class="columns__button-show-form"
+        data-column="to be tested"
+        (click)="showForm($event)"
+      >
+        +
+      </button>
+    </div>
+    <div class="columns__content">
+      <div *ngFor="let toBeTested of toBeTestedList">
+        <app-table-cell
+          [nameToDoList]="toBeTested.name"
+          [estimationTime]="toBeTested.time"
+          [description]="toBeTested.description"
+          [id]="toBeTested.id"
+          [columnName]="'to be tested'"
+          (onDeleteTask)="deleteTask($event)"
+        ></app-table-cell>
+      </div>
+    </div>
+  </div>
+  <div class="columns__column">
+    <div class="columns__header">
+      <h3>Done</h3>
+      <button
+        type="button"
+        class="columns__button-show-form"
+        data-column="done"
+        (click)="showForm($event)"
+      >
+        +
+      </button>
+    </div>
+    <div class="columns__content">
+      <div *ngFor="let done of doneList">
+        <app-table-cell
+          [nameToDoList]="done.name"
+          [estimationTime]="done.time"
+          [description]="done.description"
+          [id]="done.id"
+          [columnName]="'done'"
+          (onDeleteTask)="deleteTask($event)"
+        ></app-table-cell>
+      </div>
+    </div>
+  </div>
+</div>

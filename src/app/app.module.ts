@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { TableCellComponent } from './components/table-cell/table-cell.component';
+import { TableCellComponent } from './component/table-cell/table-cell.component';
 
 @NgModule({
   declarations: [

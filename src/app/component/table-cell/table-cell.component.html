@@ -1,0 +1,16 @@
+<div class="columns__cell">
+  <div class="columns__cell-a">
+    {{ nameToDoList }} - {{ estimationTime }}
+    <button
+      type="button"
+      class="columns__button"
+      data-id="{{ id }}"
+      (click)="deleteTask($event)"
+    >
+      &#215;
+    </button>
+  </div>
+  <div class="columns__cell-b">
+    <p>{{ description }}</p>
+  </div>
+</div>
